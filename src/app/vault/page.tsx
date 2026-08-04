@@ -177,8 +177,8 @@ export default function VaultPage() {
               initial={{ opacity: 0, scale: 0.8, y: 30 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.6, delay: idx * 0.1, type: "spring", bounce: 0.4 }}
-              whileHover={{ y: -10, scale: 1.03, rotateY: 5 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ y: -15, scale: 1.05, rotateY: 12, rotateX: 8 }}
+              whileTap={{ scale: 0.95, rotateY: 0, rotateX: 0 }}
               onClick={() => setSelectedLetter(letter)}
               className="cursor-pointer group relative glass-card p-6 sm:p-8 min-h-[200px] sm:min-h-[240px] flex flex-col items-center justify-center overflow-hidden transition-all duration-500 hover:shadow-[0_20px_40px_-10px_rgba(124,58,237,0.25)]"
               style={{ perspective: 1000 }}
@@ -235,7 +235,7 @@ export default function VaultPage() {
 
               {/* Content Section */}
               <div className="p-6 sm:p-10 overflow-y-auto custom-scrollbar">
-                <p className="text-xl sm:text-2xl lg:text-3xl text-indigo-950/80 leading-relaxed whitespace-pre-wrap font-medium">
+                <p className="text-lg sm:text-2xl lg:text-3xl text-indigo-950/80 leading-relaxed whitespace-pre-wrap font-medium">
                   {selectedLetter.content}
                 </p>
                 

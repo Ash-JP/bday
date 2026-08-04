@@ -112,10 +112,10 @@ const MediaCarousel = ({ media }: { media: { type: string, url: string }[] }) =>
       
       {media.length > 1 && (
         <>
-          <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); prev(); }} className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center bg-black/40 hover:bg-black/60 text-white rounded-full z-20 opacity-0 group-hover/carousel:opacity-100 transition-opacity shadow-md">
+          <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); prev(); }} className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center bg-black/40 hover:bg-black/60 hover:shadow-[0_0_15px_rgba(255,255,255,0.4)] text-white rounded-full z-20 opacity-0 group-hover/carousel:opacity-100 transition-all shadow-md">
             <ChevronLeft className="w-5 h-5 pr-0.5" />
           </button>
-          <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); next(); }} className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center bg-black/40 hover:bg-black/60 text-white rounded-full z-20 opacity-0 group-hover/carousel:opacity-100 transition-opacity shadow-md">
+          <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); next(); }} className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center bg-black/40 hover:bg-black/60 hover:shadow-[0_0_15px_rgba(255,255,255,0.4)] text-white rounded-full z-20 opacity-0 group-hover/carousel:opacity-100 transition-all shadow-md">
             <ChevronRight className="w-5 h-5 pl-0.5" />
           </button>
           
@@ -205,7 +205,7 @@ export default function TimelinePage() {
                     {event.title}
                   </h3>
                   
-                  <p className="text-indigo-900/80 mb-6 text-lg sm:text-2xl leading-relaxed font-medium">
+                  <p className="text-indigo-900/80 mb-6 text-base sm:text-lg md:text-xl leading-relaxed font-medium">
                     {event.description}
                   </p>
                   

@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Lock, ShieldCheck, AlertCircle, Sparkles, Heart } from "lucide-react";
-import FloatingImages from "@/components/FloatingImages";
 
 // Placeholder questions - easily editable later
 const quizQuestions = [
@@ -82,7 +81,6 @@ export default function QuizPage() {
 
   return (
     <main className="flex-1 flex flex-col items-center justify-center p-4 sm:p-8 min-h-screen relative overflow-hidden">
-      <FloatingImages />
       {/* Background Deep Red Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] max-w-[700px] max-h-[700px] bg-red-800/20 rounded-full blur-[100px] pointer-events-none"></div>
 
@@ -109,11 +107,11 @@ export default function QuizPage() {
             </div>
 
             {/* Header */}
-            <div className="flex flex-col items-center mb-8 relative z-10 text-red-900">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-red-100/80 backdrop-blur-sm rounded-full flex items-center justify-center mb-4 shadow-sm border border-red-200/50">
+            <div className="flex flex-col items-center mb-6 sm:mb-8 relative z-10 text-red-900">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-red-100/80 backdrop-blur-sm rounded-full flex items-center justify-center mb-3 sm:mb-4 shadow-sm border border-red-200/50">
                 <Lock className="w-8 h-8 sm:w-10 sm:h-10 text-red-800" />
               </div>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-center font-dancing">Security Checkpoint</h1>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-center font-dancing px-2">Security Checkpoint</h1>
               <p className="font-dancing text-2xl sm:text-3xl mt-1 opacity-80">Verify your identity to proceed.</p>
             </div>
 
@@ -137,13 +135,13 @@ export default function QuizPage() {
                       const isSelected = selectedOption === idx;
                       const isCorrect = idx === question.correctAnswer;
                       
-                      let buttonStyle = "border-red-900/20 hover:bg-red-50 text-red-900 bg-transparent";
+                      let buttonStyle = "border-red-900/20 hover:bg-red-50 text-red-900 bg-transparent hover:shadow-[0_0_15px_rgba(220,38,38,0.2)] hover:border-red-400/50";
                       
                       if (isSelected) {
                         if (isCorrect) {
-                          buttonStyle = "border-green-600/50 bg-green-50 text-green-900 shadow-sm ring-2 ring-green-600/30";
+                          buttonStyle = "border-green-600/50 bg-green-50 text-green-900 shadow-[0_0_20px_rgba(22,163,74,0.3)] ring-2 ring-green-600/50";
                         } else {
-                          buttonStyle = "border-red-600/50 bg-red-50 text-red-900 shadow-sm ring-2 ring-red-600/30";
+                          buttonStyle = "border-red-600/50 bg-red-50 text-red-900 shadow-[0_0_20px_rgba(220,38,38,0.3)] ring-2 ring-red-600/50";
                         }
                       }
 

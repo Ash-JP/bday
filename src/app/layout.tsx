@@ -3,6 +3,7 @@ import { Inter, Dancing_Script } from "next/font/google";
 import "./globals.css";
 import FloatingBubbles from "@/components/FloatingBubbles";
 import MouseGlow from "@/components/MouseGlow";
+import FloatingImages from "@/components/FloatingImages";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -38,6 +39,7 @@ export default function RootLayout({
         </div>
 
         <FloatingBubbles />
+        <FloatingImages />
 
         {/* This wrapper ensures children stack over bubbles where needed */}
         <div className="relative z-10 flex-1 flex flex-col">

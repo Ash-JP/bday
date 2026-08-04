@@ -49,7 +49,8 @@ export default function FloatingImages() {
           animate={{
             y: [0, -1500],
             rotate: [bubble.rotation, bubble.rotation + (Math.random() * 40 - 20)],
-            opacity: [0, 0.4, 0.6, 0.4, 0],
+            opacity: [0, 0.15, 0.25, 0.15, 0],
+            filter: ["blur(4px)", "blur(2px)", "blur(4px)"]
           }}
           transition={{
             duration: bubble.duration,
