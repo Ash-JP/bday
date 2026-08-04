@@ -152,8 +152,11 @@ export default function VaultPage() {
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, type: "spring", bounce: 0.4 }}
+        animate={{ opacity: 1, y: [0, -10, 0] }}
+        transition={{ 
+          opacity: { duration: 1 },
+          y: { duration: 3, repeat: Infinity, ease: "easeInOut" }
+        }}
         className="text-center max-w-3xl mx-auto mb-16 sm:mb-20 relative"
       >
         <div className="inline-block p-4 sm:p-5 bg-white/40 backdrop-blur-md rounded-3xl shadow-xl shadow-purple-500/10 border border-white/60 mb-6">
@@ -225,7 +228,7 @@ export default function VaultPage() {
             >
               <button
                 onClick={() => setSelectedLetter(null)}
-                className="absolute top-4 right-4 sm:top-5 sm:right-5 p-2 sm:p-2.5 bg-black/20 hover:bg-black/40 text-white rounded-full transition-colors z-30 backdrop-blur-sm"
+                className="absolute top-4 right-4 sm:top-5 sm:right-5 p-2 sm:p-2.5 bg-black/20 hover:bg-black/40 text-white rounded-full transition-all duration-300 hover:rotate-90 hover:scale-110 z-30 backdrop-blur-sm shadow-lg"
               >
                 <X className="w-6 h-6 sm:w-8 sm:h-8" />
               </button>

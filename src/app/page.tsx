@@ -109,7 +109,7 @@ export default function QuizPage() {
             {/* Header */}
             <div className="flex flex-col items-center mb-6 sm:mb-8 relative z-10 text-red-900">
               <div className="w-16 h-16 sm:w-20 sm:h-20 bg-red-100/80 backdrop-blur-sm rounded-full flex items-center justify-center mb-3 sm:mb-4 shadow-sm border border-red-200/50">
-                <Lock className="w-8 h-8 sm:w-10 sm:h-10 text-red-800" />
+                <Lock className="w-8 h-8 sm:w-10 sm:h-10 text-red-800 animate-pulse" />
               </div>
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-center font-dancing px-2">Security Checkpoint</h1>
               <p className="font-dancing text-2xl sm:text-3xl mt-1 opacity-80">Verify your identity to proceed.</p>

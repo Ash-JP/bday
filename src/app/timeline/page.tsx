@@ -149,8 +149,11 @@ export default function TimelinePage() {
       >
         <motion.div 
           initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
+          animate={{ scale: 1, y: [0, -10, 0] }}
+          transition={{ 
+            scale: { type: "spring", stiffness: 200, delay: 0.2 },
+            y: { duration: 3, repeat: Infinity, ease: "easeInOut" }
+          }}
           className="flex justify-center mb-8 relative"
         >
           <div className="absolute inset-0 bg-rose-200/40 blur-3xl rounded-full scale-150"></div>
@@ -158,7 +161,14 @@ export default function TimelinePage() {
         </motion.div>
         <h1 className="text-6xl sm:text-7xl md:text-8xl font-black text-indigo-950 tracking-tight mb-6 drop-shadow-sm font-dancing leading-tight flex flex-col items-center">
           <span>Happy Birthday,</span>
-          <span className="text-8xl sm:text-9xl md:text-[10rem] bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-purple-600 mt-2 pb-4">Nila!</span>
+          <motion.span 
+            initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ delay: 0.5, type: "spring", bounce: 0.5, duration: 1 }}
+            className="text-8xl sm:text-9xl md:text-[10rem] bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-purple-600 mt-2 pb-4 inline-block origin-center"
+          >
+            Nila!
+          </motion.span>
         </h1>
         <p className="text-2xl sm:text-3xl text-indigo-900/80 max-w-2xl mx-auto font-medium tracking-tight px-4">
           A look back at us, before you unlock your present.
