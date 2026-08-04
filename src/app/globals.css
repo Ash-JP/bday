@@ -1,26 +1,78 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --animate-shake: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+  --animate-blob: blob 7s infinite;
+  
+  @keyframes shake {
+    10%, 90% { transform: translate3d(-1px, 0, 0); }
+    20%, 80% { transform: translate3d(2px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+    40%, 60% { transform: translate3d(4px, 0, 0); }
+  }
+
+  @keyframes blob {
+    0% { transform: translate(0px, 0px) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+    100% { transform: translate(0px, 0px) scale(1); }
+  }
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@layer utilities {
+  .bg-gradient-vibrant {
+    background: linear-gradient(-45deg, #ff9a9e, #fecfef, #a1c4fd, #c2e9fb, #ffb199);
+    background-size: 400% 400%;
+    animation: gradient-bg 12s ease infinite;
+  }
+  
+  .glass-card {
+    @apply bg-white/50 backdrop-blur-2xl border-2 border-white/80 shadow-[0_8px_32px_0_rgba(255,105,180,0.2)] rounded-3xl;
+  }
+  
+  .glass-card-inner {
+    @apply inset-0 absolute bg-gradient-to-br from-white/60 to-white/20 pointer-events-none rounded-3xl;
+  }
+  
+  .premium-button {
+    @apply bg-gradient-to-r from-rose-500 via-pink-500 to-purple-500 text-white shadow-lg shadow-pink-500/40 hover:shadow-pink-500/60 hover:from-rose-400 hover:via-pink-400 hover:to-purple-400 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 active:scale-95;
+  }
+  
+  .floating-element {
+    position: absolute;
+    bottom: -100px;
+    animation: floatUp linear infinite;
+  }
+  
+  .font-dancing {
+    font-family: var(--font-dancing), cursive;
+  }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes gradient-bg {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-110vh) scale(1.5) rotate(360deg);
+    opacity: 0;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden;
 }
